@@ -11,4 +11,9 @@ before_install:
   - pip install requests
   - pip install flake8 codecov pytest pytest-cov
   
-script: pytest test_add.py
+script: - pytest test_add.py
+        - pytest --cov test_add.py
+
+after_success:
+        bash <(curl -s https://codecov.io/bash)
+
